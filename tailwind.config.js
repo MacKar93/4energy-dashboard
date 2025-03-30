@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
@@ -13,12 +13,6 @@ export default {
           warning: "#f59e0b",
           danger: "#ef4444",
           success: "#10b981",
-          chart: {
-            blue: "#3b82f6",
-            green: "#22c55e",
-            purple: "#a855f7",
-            orange: "#f97316",
-          },
         },
       },
     },
