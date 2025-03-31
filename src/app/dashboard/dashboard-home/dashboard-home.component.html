@@ -1,15 +1,19 @@
 <div>
-  <h1 class="text-2xl font-bold text-gray-800 mb-6">Dashboard</h1>
+  <h1 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">
+    Dashboard
+  </h1>
 
   <!-- Stats Overview -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8"
+  >
     <!-- Total Consumption -->
-    <div class="bg-white rounded-lg shadow p-6">
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
       <div class="flex items-center">
-        <div class="p-3 rounded-full bg-blue-100 text-energy-primary">
+        <div class="p-2 md:p-3 rounded-full bg-blue-100 text-energy-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-5 w-5 md:h-6 md:w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -22,9 +26,11 @@
             />
           </svg>
         </div>
-        <div class="ml-4">
-          <h2 class="text-gray-500 text-sm font-medium">Total Consumption</h2>
-          <p class="text-2xl font-bold text-gray-800">12,349 kWh</p>
+        <div class="ml-3 md:ml-4">
+          <h2 class="text-gray-500 text-xs md:text-sm font-medium">
+            Total Consumption
+          </h2>
+          <p class="text-lg md:text-2xl font-bold text-gray-800">12,349 kWh</p>
           <span class="text-green-500 text-xs font-semibold"
             >+2.5% from last month</span
           >
@@ -33,12 +39,12 @@
     </div>
 
     <!-- Peak Demand -->
-    <div class="bg-white rounded-lg shadow p-6">
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
       <div class="flex items-center">
-        <div class="p-3 rounded-full bg-red-100 text-energy-danger">
+        <div class="p-2 md:p-3 rounded-full bg-red-100 text-energy-danger">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-5 w-5 md:h-6 md:w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -51,9 +57,11 @@
             />
           </svg>
         </div>
-        <div class="ml-4">
-          <h2 class="text-gray-500 text-sm font-medium">Peak Demand</h2>
-          <p class="text-2xl font-bold text-gray-800">5.7 MW</p>
+        <div class="ml-3 md:ml-4">
+          <h2 class="text-gray-500 text-xs md:text-sm font-medium">
+            Peak Demand
+          </h2>
+          <p class="text-lg md:text-2xl font-bold text-gray-800">5.7 MW</p>
           <span class="text-red-500 text-xs font-semibold"
             >+0.8% from yesterday</span
           >
@@ -62,12 +70,12 @@
     </div>
 
     <!-- Customers -->
-    <div class="bg-white rounded-lg shadow p-6">
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
       <div class="flex items-center">
-        <div class="p-3 rounded-full bg-green-100 text-energy-success">
+        <div class="p-2 md:p-3 rounded-full bg-green-100 text-energy-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-5 w-5 md:h-6 md:w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -80,23 +88,25 @@
             />
           </svg>
         </div>
-        <div class="ml-4">
-          <h2 class="text-gray-500 text-sm font-medium">Total Customers</h2>
-          <p class="text-2xl font-bold text-gray-800">1,245</p>
+        <div class="ml-3 md:ml-4">
+          <h2 class="text-gray-500 text-xs md:text-sm font-medium">
+            Current bill
+          </h2>
+          <p class="text-lg md:text-2xl font-bold text-gray-800">$0.00</p>
           <span class="text-green-500 text-xs font-semibold"
-            >+12 new this month</span
+            >All paid for this month</span
           >
         </div>
       </div>
     </div>
 
     <!-- Cost -->
-    <div class="bg-white rounded-lg shadow p-6">
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
       <div class="flex items-center">
-        <div class="p-3 rounded-full bg-yellow-100 text-energy-warning">
+        <div class="p-2 md:p-3 rounded-full bg-yellow-100 text-energy-warning">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-5 w-5 md:h-6 md:w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -109,9 +119,11 @@
             />
           </svg>
         </div>
-        <div class="ml-4">
-          <h2 class="text-gray-500 text-sm font-medium">Total Cost</h2>
-          <p class="text-2xl font-bold text-gray-800">$54,321</p>
+        <div class="ml-3 md:ml-4">
+          <h2 class="text-gray-500 text-xs md:text-sm font-medium">
+            Total Cost
+          </h2>
+          <p class="text-lg md:text-2xl font-bold text-gray-800">$54,321</p>
           <span class="text-red-500 text-xs font-semibold"
             >+5.3% from last month</span
           >
@@ -121,26 +133,30 @@
   </div>
 
   <!-- Charts Section -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
     <!-- Energy Consumption Chart -->
-    <div class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-lg font-semibold text-gray-800 mb-4">
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
         Energy Consumption Trend
       </h2>
-      <div class="h-72 bg-gray-200 rounded flex items-center justify-center">
-        <p class="text-gray-500">
+      <div
+        class="h-56 md:h-72 bg-gray-200 rounded flex items-center justify-center"
+      >
+        <p class="text-gray-500 text-sm md:text-base">
           Energy consumption chart will be displayed here
         </p>
       </div>
     </div>
 
     <!-- Consumption by Category -->
-    <div class="bg-white rounded-lg shadow p-6">
-      <h2 class="text-lg font-semibold text-gray-800 mb-4">
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
         Consumption by Category
       </h2>
-      <div class="h-72 bg-gray-200 rounded flex items-center justify-center">
-        <p class="text-gray-500">
+      <div
+        class="h-56 md:h-72 bg-gray-200 rounded flex items-center justify-center"
+      >
+        <p class="text-gray-500 text-sm md:text-base">
           Category breakdown chart will be displayed here
         </p>
       </div>
@@ -148,16 +164,18 @@
   </div>
 
   <!-- Recent Activity -->
-  <div class="bg-white rounded-lg shadow p-6">
-    <h2 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h2>
+  <div class="bg-white rounded-lg shadow p-4 md:p-6">
+    <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
+      Recent Activity
+    </h2>
     <div class="divide-y divide-gray-200">
-      <div class="py-3 flex items-start">
+      <div class="py-2 md:py-3 flex items-start">
         <div
-          class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 flex items-center justify-center text-green-500"
+          class="flex-shrink-0 h-8 w-8 md:h-10 md:w-10 rounded-full bg-green-100 flex items-center justify-center text-green-500"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
+            class="h-4 w-4 md:h-5 md:w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -170,21 +188,23 @@
             />
           </svg>
         </div>
-        <div class="ml-4">
-          <h3 class="text-sm font-medium text-gray-800">New Customer Added</h3>
-          <p class="text-sm text-gray-600">
-            ABC Corporation was added to the system
+        <div class="ml-3 md:ml-4">
+          <h3 class="text-xs md:text-sm font-medium text-gray-800">
+            New Payment registred
+          </h3>
+          <p class="text-xs md:text-sm text-gray-600">
+            July 3, 2023 at 10:30 AM - $2,500
           </p>
           <span class="text-xs text-gray-400">25 minutes ago</span>
         </div>
       </div>
-      <div class="py-3 flex items-start">
+      <div class="py-2 md:py-3 flex items-start">
         <div
-          class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500"
+          class="flex-shrink-0 h-8 w-8 md:h-10 md:w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
+            class="h-4 w-4 md:h-5 md:w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -197,9 +217,11 @@
             />
           </svg>
         </div>
-        <div class="ml-4">
-          <h3 class="text-sm font-medium text-gray-800">System Update</h3>
-          <p class="text-sm text-gray-600">
+        <div class="ml-3 md:ml-4">
+          <h3 class="text-xs md:text-sm font-medium text-gray-800">
+            System Update
+          </h3>
+          <p class="text-xs md:text-sm text-gray-600">
             Power monitoring system was updated
           </p>
           <span class="text-xs text-gray-400">2 hours ago</span>
