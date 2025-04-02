@@ -1,0 +1,322 @@
+<div>
+  <h1 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">
+    Energy Usage
+  </h1>
+
+  <!-- Time Period Selector -->
+  <div class="bg-white rounded-lg shadow p-4 md:p-6 mb-6">
+    <div class="flex flex-col sm:flex-row justify-between items-center">
+      <h2 class="text-lg font-medium text-gray-900 mb-3 sm:mb-0">
+        Usage Statistics
+      </h2>
+      <div class="flex space-x-2">
+        <button
+          (click)="setPeriod('day')"
+          [class.bg-energy-accent]="selectedPeriod === 'day'"
+          [class.text-white]="selectedPeriod === 'day'"
+          [class.bg-gray-100]="selectedPeriod !== 'day'"
+          class="px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Day
+        </button>
+        <button
+          (click)="setPeriod('week')"
+          [class.bg-energy-accent]="selectedPeriod === 'week'"
+          [class.text-white]="selectedPeriod === 'week'"
+          [class.bg-gray-100]="selectedPeriod !== 'week'"
+          class="px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Week
+        </button>
+        <button
+          (click)="setPeriod('month')"
+          [class.bg-energy-accent]="selectedPeriod === 'month'"
+          [class.text-white]="selectedPeriod === 'month'"
+          [class.bg-gray-100]="selectedPeriod !== 'month'"
+          class="px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Month
+        </button>
+        <button
+          (click)="setPeriod('year')"
+          [class.bg-energy-accent]="selectedPeriod === 'year'"
+          [class.text-white]="selectedPeriod === 'year'"
+          [class.bg-gray-100]="selectedPeriod !== 'year'"
+          class="px-4 py-2 rounded-md text-sm font-medium"
+        >
+          Year
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Stats Overview -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
+    <!-- Current Usage -->
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h3 class="text-gray-500 text-sm font-medium mb-1">Current Usage</h3>
+      <div class="flex items-center">
+        <div class="text-3xl font-bold text-gray-800">
+          {{ currentUsage }} kWh
+        </div>
+        <div
+          class="ml-2 flex items-center text-sm"
+          [ngClass]="usageChange > 0 ? 'text-red-500' : 'text-green-500'"
+        >
+          <svg
+            *ngIf="usageChange > 0"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 15l7-7 7 7"
+            />
+          </svg>
+          <svg
+            *ngIf="usageChange < 0"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <span
+            >{{ Math.abs(usageChange) }}% from previous
+            {{ selectedPeriod }}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Peak Usage -->
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h3 class="text-gray-500 text-sm font-medium mb-1">Peak Usage</h3>
+      <div class="text-3xl font-bold text-gray-800">{{ peakUsage }} kWh</div>
+      <p class="text-sm text-gray-500">
+        {{ peakTime | date : "MMM d, h:mm a" }} - {{ peakDuration }} minutes
+      </p>
+    </div>
+
+    <!-- Estimated Cost -->
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h3 class="text-gray-500 text-sm font-medium mb-1">Estimated Cost</h3>
+      <div class="text-3xl font-bold text-gray-800">
+        {{ estimatedCost | currency }}
+      </div>
+      <p class="text-sm text-gray-500">Based on current rate of $0.12/kWh</p>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6">
+    <!-- Energy Consumption Chart -->
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
+        Energy Consumption Trend
+      </h2>
+      <div class="h-64 md:h-80 bg-gray-100 rounded">
+        <!-- Replace with actual chart component -->
+        <div class="h-full flex items-center justify-center">
+          <p class="text-gray-500">
+            Energy consumption chart will be implemented here
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage By Time of Day -->
+    <div class="bg-white rounded-lg shadow p-4 md:p-6">
+      <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
+        Usage By Time of Day
+      </h2>
+      <div class="h-64 md:h-80 bg-gray-100 rounded">
+        <!-- Replace with actual chart component -->
+        <div class="h-full flex items-center justify-center">
+          <p class="text-gray-500">
+            Time of day usage chart will be implemented here
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Energy Usage Breakdown -->
+  <div class="bg-white rounded-lg shadow p-4 md:p-6">
+    <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
+      Energy Usage Breakdown
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Breakdown Table -->
+      <div>
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th
+                class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Category
+              </th>
+              <th
+                class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Usage (kWh)
+              </th>
+              <th
+                class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Percentage
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr *ngFor="let item of usageBreakdown">
+              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
+                {{ item.category }}
+              </td>
+              <td
+                class="px-4 py-3 whitespace-nowrap text-sm text-right text-gray-800"
+              >
+                {{ item.usage }} kWh
+              </td>
+              <td
+                class="px-4 py-3 whitespace-nowrap text-sm text-right text-gray-800"
+              >
+                {{ item.percentage }}%
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="bg-gray-50">
+              <td
+                class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900"
+              >
+                Total
+              </td>
+              <td
+                class="px-4 py-3 whitespace-nowrap text-sm font-medium text-right text-gray-900"
+              >
+                {{ totalUsage }} kWh
+              </td>
+              <td
+                class="px-4 py-3 whitespace-nowrap text-sm font-medium text-right text-gray-900"
+              >
+                100%
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Breakdown Chart -->
+      <div>
+        <div class="h-64 bg-gray-100 rounded">
+          <!--TO DO: Replace with actual chart component -->
+          <div class="h-full flex items-center justify-center">
+            <p class="text-gray-500">
+              Breakdown chart will be implemented here
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Energy Saving Tips -->
+  <div class="bg-white rounded-lg shadow p-4 md:p-6">
+    <h2 class="text-md md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">
+      Energy Saving Tips
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="border border-gray-200 rounded-lg p-4">
+        <div class="flex items-center mb-3">
+          <div class="p-2 rounded-full bg-green-100 text-energy-success mr-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+          </div>
+          <h3 class="font-medium text-gray-900">Optimize Thermostat</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+          Set your thermostat 1-2 degrees higher in summer and lower in winter
+          to save up to 10% on heating and cooling costs.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg p-4">
+        <div class="flex items-center mb-3">
+          <div class="p-2 rounded-full bg-blue-100 text-energy-secondary mr-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+              />
+            </svg>
+          </div>
+          <h3 class="font-medium text-gray-900">LED Lighting</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+          Replace traditional bulbs with LEDs to use up to 75% less energy and
+          last 25 times longer.
+        </p>
+      </div>
+
+      <div class="border border-gray-200 rounded-lg p-4">
+        <div class="flex items-center mb-3">
+          <div class="p-2 rounded-full bg-purple-100 text-purple-600 mr-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+          <h3 class="font-medium text-gray-900">Smart Power Strips</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+          Use smart power strips to eliminate phantom power consumption when
+          devices are not in use.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
